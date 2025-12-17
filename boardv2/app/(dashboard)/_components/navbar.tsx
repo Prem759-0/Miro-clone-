@@ -1,13 +1,59 @@
 "use client"
 
-import { UserButton } from "@clerk/nextjs"
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
+import { SearchInput } from "./search-input"
+import { InviteButton } from "./invite-button"
 
 export const Navbar = () => {
     return(
-        <div className="flex items-center gap-x-4 p-5 bg-green-500">
-            <div className="hidden lg:flex lg:flex-1 bg-yellow-500">
-               Search
+        <div className="flex items-center gap-x-4 p-5 ">
+            <div className="hidden lg:flex lg:flex-1 ">
+               <SearchInput/>
             </div>
+            <div className="block lg:hidden flex-1">
+
+                  <OrganizationSwitcher
+                        hidePersonal
+                        appearance={{
+                          elements: {
+                            /* FULL WIDTH + HEIGHT */
+                            rootBox: {
+                              width: "100%",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              maxWidth: "376px"
+                            },
+                
+                            organizationSwitcherTrigger: {
+                              width: "100%",
+                              height: "48px", // ✅ full consistent height
+                              padding: "8px 12px",
+                              borderRadius: "10px",
+                              border: "1px solid #E5E7EB",
+                              backgroundColor: "#ffffff",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                            },
+                
+                            /* ORGANIZATION AVATAR SIZE */
+                            organizationAvatarBox: {
+                              width: "32px",
+                              height: "32px",
+                            },
+                
+                            organizationAvatarImage: {
+                              width: "32px",
+                              height: "32px",
+                              borderRadius: "6px",
+                            },
+                          },
+                        }}
+                      />
+
+            </div>
+            <InviteButton/>
               <UserButton/>
         </div>
     )
