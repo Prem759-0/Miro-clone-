@@ -76,7 +76,7 @@ export const InviteButton = () => {
               />
               </div>
               <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-b from-black/90 to-black p-8 flex-col items-center justify-center">
-                <img src="/logo.svg" alt="Canvra Logo" className="w-32 h-32 mb-4 drop-shadow-lg" />
+                <img src="/logo.svg" alt="Canvra Logo" className="w-32 h-32  mb-4 drop-shadow-lg" />
                 <h1 className="text-3xl font-bold text-white text-center leading-tight">
                   Invite members to <span className="text-blue-400 bg-blue-900/20 px-2 py-1 rounded">Canvra</span>
                 </h1>

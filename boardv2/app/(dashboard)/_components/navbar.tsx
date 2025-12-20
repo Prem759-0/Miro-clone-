@@ -60,7 +60,7 @@ export const Navbar = () => {
                       />
 
             </div>
-            <InviteButton/>
+            {organization && <InviteButton/>}
               <UserButton/>
         </div>
     )
