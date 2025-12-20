@@ -7,6 +7,8 @@ import { useAuth } from "@clerk/nextjs";
 import {formatDistanceToNow} from "date-fns"
 import { Footer } from "./footer";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Actions } from "@/components/actions";
+import { MoreHorizontal } from "lucide-react";
 
 interface BoardCardProps {
     id: string;
@@ -47,6 +49,18 @@ export const BoardCard = ({
                        className="object-cover"
                     />
                     <Overlay/>
+                    <Actions
+                       id={id}
+                       title={title}
+                       side="right"
+                    >
+                      <button className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 outline-none">
+                       <MoreHorizontal 
+                          className="text-white opacity-75 hover:opacity-100 transition-opacity"
+                       />
+                      </button>
+
+                    </Actions>
                 </div>
                 <Footer
                       isFavorited={isFavorite}
@@ -63,9 +77,22 @@ export const BoardCard = ({
 
 
 BoardCard.Skeleton = function BoardCardSkeleton() {
-    return(
-        <div className="aspect-[100/127]  rounded-lg  overflow-hidden">
-            <Skeleton className="h-full w-full" />
-        </div>
-    )
-}
+  return (
+    <div className="aspect-[100/127] border rounded-lg overflow-hidden bg-white">
+
+      {/* Image placeholder */}
+      <Skeleton className="h-[75%] w-full rounded-none animate-none bg-muted/80" />
+
+      {/* Footer placeholder */}
+      <div className="p-3 space-y-2 bg-muted/95">
+        <Skeleton className="h-3 w-3/4 animate-none bg-muted/70" />
+        <Skeleton className="h-2 w-1/2 animate-none bg-muted/60" />
+      </div>
+
+    </div>
+  );
+};
+
+
+
+
